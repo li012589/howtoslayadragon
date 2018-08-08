@@ -691,6 +691,6 @@ here my set-up is XPS15(9570), debian non-free xfce testing, windows10 1803.
 ## ETC
 
 ```bash
-sudo apt install tree dnsutils htop
+sudo apt install tree dnsutils htop xclip
 ```
 
