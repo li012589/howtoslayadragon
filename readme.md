@@ -627,8 +627,15 @@ here my set-up is XPS15(9570), debian non-free xfce testing, windows10 1803.
    sudo systemctl daemon-reload
    sudo systemctl enable screenlock.service
    ```
-
-   
+6. fix chromium slow down on newer CPUs, add file at `/etc/X11/xorg.conf.d/20-intel.conf` [4]
+   ```bash
+   Section "Device"
+     Identifier  "Intel Graphics"
+     Driver      "intel"
+     Option      "TearFree" "true"
+     Option      "AccelMethod"  "uxa"
+   EndSection
+   ```
 
 #### Reference
 
@@ -637,6 +644,8 @@ here my set-up is XPS15(9570), debian non-free xfce testing, windows10 1803.
 [2]. https://wiki.archlinux.org/index.php/powertop#Calibration_to_prevent_inaccurate_measurement
 
 [3]. https://askubuntu.com/questions/145443/how-do-i-use-pm-suspend-hybrid-by-default-instead-of-pm-suspend/781957#781957
+
+[4]. https://wiki.archlinux.org/index.php/intel_graphics#Disable_Vertical_Synchronization_.28VSYNC.29
 
 ## VIII. Chinese input
 
