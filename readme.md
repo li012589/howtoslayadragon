@@ -602,6 +602,34 @@ here my set-up is XPS15(9570), debian non-free xfce testing, windows10 1803.
    HandleLidSwitch=hybrid-sleep
    ```
 
+5. add screen lock function at resume
+
+   add file at `/etc/systemd/system/screenlock.service`
+
+   ```bash
+   [Unit]
+   Description=Lock the screen on resume from suspend
+   
+   [Service]
+   User=YOURUSERNAME
+   Type=forking
+   Environment=DISPLAY=:0
+   ExecStart=/usr/bin/xflock4 # or i3lock
+   
+   [Install]
+   WantedBy=sleep.target
+   WantedBy=suspend.target
+   ```
+
+   then 
+
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable screenlock.service
+   ```
+
+   
+
 #### Reference
 
 [1]. https://blog.sleeplessbeastie.eu/2015/08/10/how-to-set-all-tunable-powertop-options-at-system-boot/
