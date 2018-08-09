@@ -318,7 +318,7 @@ here my set-up is XPS15(9570), debian non-free xfce testing, windows10 1803.
 
 ## VI. i3
 
-### TODO: state bar, sound bar; dmenu; lock screen
+### TODO: state bar, sound bar; dmenu; lock screen and desktop background
 
 1. install
 
