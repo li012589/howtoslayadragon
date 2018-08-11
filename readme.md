@@ -4,7 +4,7 @@
 
 if you're using a atheros WiFi card, you have to use a non-free debian netiso, which can be found at https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/, recommendations are testing or sid.
 
-here my set-up is XPS15(9570), debian non-free xfce testing, windows10 1803.
+here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 
 ## 0. Works on the windows side
 
