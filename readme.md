@@ -730,4 +730,15 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 ```bash
 sudo apt install tree dnsutils htop xclip
 ```
+let firefox support Emacs-like hotkeys[1], edit `~/.config/gtk-3.0/settings.ini`, add this line:
+```bash
+# enable emacs key theme on gtk
+gtk-key-theme-name=Emacs
+```
+And in terminal inter this:
+```bash
+gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+```
 
+#### Reference
+[1]. https://www.emacswiki.org/emacs/Mozilla
