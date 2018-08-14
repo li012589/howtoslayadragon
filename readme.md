@@ -30,7 +30,7 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 
 ## I.Install the system
 
-1. not much to say, select Xfce as desktop.
+1. not much to say, use English as default language ,select Xfce as desktop.
 
 2. add own account into sudoers:
 
@@ -648,8 +648,47 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 [4]. https://wiki.archlinux.org/index.php/intel_graphics#Disable_Vertical_Synchronization_.28VSYNC.29
 
 ## VIII. Chinese input
+1. First, add Chinese to `/etc/locale.gen`, edit it and uncomment "zh_CN GB2312, zh_CN_GBK, zh_CN.UTF-8", then run:
+```bash
+sudo locale-gen
+```
 
-1. install
+2. Change default CJK preference to first Simplified Chinese then whatever[3], this resolve the problem where some Chinese charaters being rendered as Japanese charaters,
+create file at `/etc/fonts/conf.avail/64-language-selector-prefer.conf`, enter this:
+```bash
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+    <alias>
+        <family>sans-serif</family>
+        <prefer>
+            <family>Noto Sans CJK SC</family>
+            <family>Noto Sans CJK TC</family>
+            <family>Noto Sans CJK JP</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>monospace</family>
+        <prefer>
+            <family>Noto Sans Mono CJK SC</family>
+            <family>Noto Sans Mono CJK TC</family>
+            <family>Noto Sans Mono CJK JP</family>
+        </prefer>
+    </alias>
+</fontconfig>
+```
+Then
+```bash
+# if you have a /etc/fonts/conf.d folder
+sudo ln -s /etc/fonts/conf.avail/64-language-selector-prefer.conf /etc/fonts/conf.d/64-language-selector-prefer.conf
+sudo fc-cache -fv
+sudo fc-match -s |grep 'Noto Sans CJK'
+# last command should give you this:
+# NotoSansCJK-Regular.ttc: "Noto Sans CJK SC" "Regular"
+# (here SC means Simplified Chinese)
+```
+
+3. install
 
    ```bash
     sudo apt install ibus-rime librime-data-double-pinyin
@@ -658,14 +697,14 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
     cp /usr/share/rime-data/double_pinyin_flypy.yaml ~/.config/ibus/rime/
    ```
 
-2. use `im-config` to select `ibus` as IM, and use `ibus-config` to select font and size:
+4. use `im-config` to select `ibus` as IM, and use `ibus-config` to select font and size:
 
    ```bash
    im-config
    ibus-setup
    ```
 
-3. edit `./.config/ibus/rime/default.custom.yaml`, add these lines:
+5. edit `./.config/ibus/rime/default.custom.yaml`, add these lines:
 
    ```bash
    patch:
@@ -676,11 +715,11 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
    		page_size: 9
    ```
 
-4. reboot
+6. reboot
 
-5. win+space to select rime
+7. win+space to select rime
 
-6. install `fontconfig-infinality` [2]
+8. install `fontconfig-infinality` [2]
 
    ```bash
    echo "deb http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu precise main" | sudo tee /etc/apt/sources.list.d/infinality.list
@@ -702,6 +741,8 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 [1]. https://github.com/rime/home/wiki/CustomizationGuide
 
 [2]. https://gist.github.com/TheWaWaR/a0e7c6b8d6d149490a4a
+
+[3]. https://wiki.archlinux.org/index.php/Localization/Simplified_Chinese_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E4.B8.AD.E6.96.87.E5.AD.97.E4.BD.93
 
 ## IX. Keyboard remap
 
