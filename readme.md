@@ -746,21 +746,55 @@ sudo fc-match -s |grep 'Noto Sans CJK'
 
 ## IX. Keyboard remap
 
+### Globally
+
 1. edit `/etc/default/keyboard`
 
    change `XKBOPTIONS` to 
 
    ```bash
-   XKBOPTIONS="ctrl:swapcaps"
+   XKBOPTIONS="altwin:swap_lalt_lwin,ctrl:swapcaps"
    ```
 
-   this exchange ctrl and caps lock.[2]
+   this exchange ctrl and caps lock,[2] and exchange left alt and left Win.[3]
+   
+### Match different devices
+
+1. create `/etc/X11/xorg.conf.d/15-keyboard.conf`, enter this:[4-6]
+
+```bash
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "us"
+        Option "XkbModel" "pc104"
+        Option "XkbOptions" "altwin:swap_lalt_lwin,ctrl:swapcaps"
+EndSection
+
+Section "InputClass"
+        Identifier "Happy Hacking Keyboard"
+        MatchIsKeyboard "on"
+        MatchVendor "Topre_Corporation"
+
+        Option "XkbLayout" "us"
+EndSection
+```
+
+First one is common keyboard including the one internal in laptop, we swip ctrl and caps lock, left alt and left win. The second one is for HHKB, it use normal settings.
 
 #### Reference
 
 [1]. https://medium.com/@damko/a-simple-humble-but-comprehensive-guide-to-xkb-for-linux-6f1ad5e13450
 
 [2]. https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys
+
+[3]. https://askubuntu.com/questions/29731/rebind-alt-key-to-win-using-setxkbmap
+
+[4]. https://superuser.com/questions/75817/two-keyboards-on-one-computer-when-i-write-with-a-i-want-a-us-keyboard-layout
+
+[5]. https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg
+
+[6]. ftp://www.x.org/pub/X11R7.7-RC1/doc/xorg-docs/input/XKB-Config.html
 
 ## X. windows integration 
 
