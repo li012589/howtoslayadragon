@@ -1,6 +1,6 @@
 # Install debian on a laptop
 
-### TODO: GTK theme, icon, cursor;
+### TODO: cursor;
 
 if you're using a atheros WiFi card, you have to use a non-free debian netiso, which can be found at https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/, recommendations are testing or sid.
 
@@ -544,8 +544,14 @@ sudo apt install dunst
 test dunst:
 ```bash
 notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
+notify-send 'Hello world!' 'This is an example notification.' -u low
+notify-send 'Hello world!' 'This is an example notification.' -u normal
+notify-send 'Hello world!' 'This is an example notification.' -u critical
 ```
-
+configuration file can be found at `~/.config/dunst/dunstrc`, first
+```bash
+cp /usr/share/dunst/dunstrc ~/.config/dunst/dunstrc
+```
 
 8. add this line to i3 config to enable applet for network manager, bluetooth etc.
 
