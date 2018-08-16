@@ -717,7 +717,7 @@ sudo fc-match -s |grep 'Noto Sans CJK'
 
 6. reboot
 
-7. win+space to select rime
+7. win+space to select rime, to change this, use menu key on IM icon, in pop-up menu, select preference.
 
 8. install `fontconfig-infinality` [2]
 
