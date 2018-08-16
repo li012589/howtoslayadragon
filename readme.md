@@ -343,8 +343,7 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
    bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
    
    # Media player controls
-   bindsym XF86AudioPlay exec playerctl play
-   bindsym XF86AudioPause exec playerctl pause
+   bindsym XF86AudioPlay exec playerctl play-pause
    bindsym XF86AudioNext exec playerctl next
    bindsym XF86AudioPrev exec playerctl previous
    ```
