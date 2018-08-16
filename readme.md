@@ -412,6 +412,23 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
    https://github.com/belluzj/fantasque-sans
 
    https://github.com/FortAwesome/Font-Awesome
+   
+6. install icon theme: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme, 
+
+```bash
+sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu xenial main' > /etc/apt/sources.list.d/papirus-ppa.list"
+
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+sudo apt-get update
+sudo apt-get install papirus-icon-theme
+```
+
+7. install GTK theme: https://github.com/nana-4/materia-theme
+```bash
+sudo apt install materia-gtk-theme
+```
+
+8. open `lxappearance`, select this icon theme and GTK theme.
 
 6. install
 
@@ -509,13 +526,26 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
    };
    ```
 
+### Minimal settig: using xfce4's notification
+
 7. test if notification works:[6]
 
    ```bash
    notify-send --icon=gtk-info Test "This is a test"
    ```
 
-   if not working, you can install `dunst`
+### Better setting: using dunst
+
+7. run:
+```bash
+sudo apt remove xfce4-notifyd
+sudo apt install dunst
+```
+test dunst:
+```bash
+notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
+```
+
 
 8. add this line to i3 config to enable applet for network manager, bluetooth etc.
 
