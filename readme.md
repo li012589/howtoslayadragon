@@ -323,7 +323,7 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 1. install
 
    ```bash
-   sudo apt install i3 feh playerctl xbacklight i3blocks
+   sudo apt install i3 feh playerctl xbacklight i3blocks gsimplecal
    ```
 
 2. at login screen select i3, when logged in and when asked if create a default configuration file, select yes, and then select use win key as mod key.
@@ -406,7 +406,7 @@ git clone https://github.com/vivien/i3blocks-contrib
 cp /etc/i3blocks.conf ./
 ```
 
-6. use `batterybar`,`calendar` at `dotfile` folder.
+6. use `batterybar`,`calendar` at `dotfile` folder. `calendar` has a configura file(`config.gsimplecal`), move it as `~/.config/gsimplecal/config`
 
 7. install fonts from Apple
 
