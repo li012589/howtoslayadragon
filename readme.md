@@ -318,12 +318,12 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 
 ## VI. i3
 
-### TODO: state bar, sound bar; dmenu; lock screen and desktop background
+### TODO: lock screen and desktop background
 
 1. install
 
    ```bash
-   sudo apt install i3 feh playerctl xbacklight
+   sudo apt install i3 feh playerctl xbacklight i3blocks
    ```
 
 2. at login screen select i3, when logged in and when asked if create a default configuration file, select yes, and then select use win key as mod key.
@@ -382,7 +382,33 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
    EndSection
    ```
 
-4. install fonts from Apple
+4. change i3bar to use i3blocks, at `./.config/i3/config`, change this line:
+
+```bash
+bar {
+        status_command i3status
+}
+```
+into
+```bash
+bar {
+        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+}
+```
+### Configure i3blocks
+
+5. get script from official i3blocks git repo,
+
+```bash
+mkdir -p ~/.config/i3blocks/
+cd ~/.config/i3blocks
+git clone https://github.com/vivien/i3blocks-contrib
+cp /etc/i3blocks.conf ./
+```
+
+6. use `batterybar`,`calendar` at `dotfile` folder.
+
+7. install fonts from Apple
 
    ```bash
    git clone https://github.com/AppleDesignResources/SanFranciscoFont.git
@@ -404,7 +430,7 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 
    and change GTK font using `xfce4-appearance-settings`
 
-5. other fonts to install:
+8. other fonts to install:
 
    https://github.com/supermarin/YosemiteSanFranciscoFont
 
@@ -412,7 +438,7 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 
    https://github.com/FortAwesome/Font-Awesome
    
-6. install icon theme: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme, 
+9. install icon theme: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme, 
 
 ```bash
 sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu xenial main' > /etc/apt/sources.list.d/papirus-ppa.list"
@@ -422,14 +448,14 @@ sudo apt-get update
 sudo apt-get install papirus-icon-theme
 ```
 
-7. install GTK theme: https://github.com/nana-4/materia-theme
+10. install GTK theme: https://github.com/nana-4/materia-theme
 ```bash
 sudo apt install materia-gtk-theme
 ```
 
-8. open `lxappearance`, select this icon theme and GTK theme.
+11. open `lxappearance`, select this icon theme and GTK theme.
 
-6. install
+12. install
 
    ```bash
    sudo apt install compton
@@ -527,7 +553,7 @@ sudo apt install materia-gtk-theme
 
 ### Minimal settig: using xfce4's notification
 
-7. test if notification works:[6]
+13. test if notification works:[6]
 
    ```bash
    notify-send --icon=gtk-info Test "This is a test"
@@ -535,7 +561,7 @@ sudo apt install materia-gtk-theme
 
 ### Better setting: using dunst
 
-7. run:
+13. run:
 ```bash
 sudo apt remove xfce4-notifyd
 sudo apt install dunst
@@ -552,7 +578,7 @@ configuration file can be found at `~/.config/dunst/dunstrc`, first
 cp /usr/share/dunst/dunstrc ~/.config/dunst/dunstrc
 ```
 
-8. add this line to i3 config to enable applet for network manager, bluetooth etc.
+14. add this line to i3 config to enable applet for network manager, bluetooth etc.
 
    ```bash
    exec --no-startup-id nm-applet

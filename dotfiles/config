@@ -133,7 +133,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 #custom key bind
 
 # Screen shot
-bindsym Print exec xfce4-screenshooter
+bindsym Print exec --no-startup-id xfce4-screenshooter
 bindsym $mod+u [urgent=latest] focus
 bindsym $mod+Control+Escape exec --no-startup-id /usr/bin/systemctl suspend
 bindsym $mod+Shift+Escape exec --no-startup-id /usr/bin/systemctl hibernate
@@ -176,11 +176,11 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 }
 
 # use compton to enable GUI effect
-exec compton
+exec --no-startup-id compton
 
 # use to switch between current and previously focused
 bindsym $mode+tab workspace back_and_forth
@@ -188,22 +188,23 @@ bindsym $mode+tab workspace back_and_forth
 # auto start some applet
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+#exec --no-startup-id volumeicon
 #exec --no-startup-id xfce4-power-manager
 
 # Enable volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master -q 5%+ # increase volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master -q 5%- # decrease volume
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle # mute volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master -q 5%+ && pkill -RTMIN+10 i3blocks # increase volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master -q 5%- && pkill -RTMIN+10 i3blocks # decrease volume
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle && pkill -RTMIN+10 i3blocks # mute volume
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause # play
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause # play
 #bindsym XF86AudioPause exec playerctl pause # pause
-bindsym XF86AudioNext exec playerctl next # next
-bindsym XF86AudioPrev exec playerctl previous # previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next # next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous # previous
 
 # Solarized theme color
 set $base03    #002b36
@@ -237,3 +238,8 @@ client.focused          $bg-color           $bg-color          $base2          $
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
 client.urgent           $red    $red   $base2          $indicator-color
+
+# app specified settings
+
+# setting for calendat applet gsimplecal
+for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down $height px
