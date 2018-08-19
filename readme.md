@@ -862,7 +862,7 @@ First one is common keyboard including the one internal in laptop, we swip ctrl 
 ## ETC
 
 ```bash
-sudo apt install tree dnsutils htop xclip
+sudo apt install tree dnsutils htop xclip ntp
 ```
 let firefox support Emacs-like hotkeys[1], edit `~/.config/gtk-3.0/settings.ini`, add this line:
 ```bash
