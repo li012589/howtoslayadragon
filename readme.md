@@ -63,7 +63,7 @@ here my set-up is XPS15(9570), debian non-free xfce sid, windows10 1803.
 1. install (bluetooth(the driver) -> pulseaudio(bluetooth GUI) -> pavcontrol(audio volume handler)), see[1]\[2].
 
    ```bash
-   sudo apt install pulseaudio pulseaudio-utils pulseaudio-module-bluetooth bluetooth pavcontrol
+   sudo apt install pulseaudio pulseaudio-utils pulseaudio-module-bluetooth bluetooth pavucontrol
    ```
 
 2. right click on the top panel, in the pop-out menu select panel->add New Items, and add pulseaudio plugin.
