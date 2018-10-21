@@ -839,6 +839,15 @@ Section "InputClass"
 EndSection
 ```
 
+2. You can also change CTRL-oriented hotkeys to SUPER-oriented ones using i3, just add these lines to `~\.config\i3\config`[7]
+
+```bash
+bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
+bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+x
+bindsym --release $mod+f exec --no-startup-id xdotool key --clearmodifiers ctrl+f
+```
+
 First one is common keyboard including the one internal in laptop, we swip ctrl and caps lock, left alt and left win. The second one is for HHKB, it use normal settings.
 
 #### Reference
@@ -854,6 +863,8 @@ First one is common keyboard including the one internal in laptop, we swip ctrl 
 [5]. https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg
 
 [6]. ftp://www.x.org/pub/X11R7.7-RC1/doc/xorg-docs/input/XKB-Config.html
+
+[7]. https://github.com/i3/i3/issues/485
 
 ## X. windows integration 
 
