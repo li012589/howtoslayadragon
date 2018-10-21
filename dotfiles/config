@@ -14,7 +14,9 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:SanFranciscoDisplay, Bold 12
+font pango:SanFranciscoDisplay, FontAwesome5Free, FontAwesome5Brands, Bold 12
+#font pango:FontAwesome, Bold 12
+#font pango:SanFranciscoDisplay, pango:FontAwesome 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -47,7 +49,7 @@ bindsym $mod+space exec dmenu_run -fn "pango:SanFranciscoDisplay 15"
 #bindsym $mod+h focus left
 #bindsym $mod+j focus down
 #bindsym $mod+k focus up
-#bindsym $mod+l focus right
+#bindsym $mod+lfonts focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -68,10 +70,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizont al orientation
-bindsym $mod+h split h
+#bindsym $mod+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+h split v
+
+# split toggle
+bindsym $mod+h split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+o fullscreen toggle
@@ -94,13 +99,13 @@ bindsym $mod+p focus parent
 bindsym $mod+Shift+p focus child
 
 # simulate hotkeys
-bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
-bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+x
-bindsym --release $mod+f exec --no-startup-id xdotool key --clearmodifiers ctrl+f
+#bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
+#bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+#bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+x
+#bindsym --release $mod+f exec --no-startup-id xdotool key --clearmodifiers ctrl+f
 # simulate hotkeys for chromium
-bindsym --release $mod+t exec --no-startup-id xdotool key --clearmodifiers ctrl+t
-bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
+#bindsym --release $mod+t exec --no-startup-id xdotool key --clearmodifiers ctrl+t
+#bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -194,7 +199,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+      status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
 }
 
 # use compton to enable GUI effect
