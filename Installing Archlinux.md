@@ -267,3 +267,9 @@ HibernateMode=suspend
 ```
 
 And use `xfce4-power-manager` to manager power options.
+
+
+
+#### tricks:
+
+1. use `xev` or `xev -event keyboard` to keep tack of input events(to lookup symbol for keyss)
