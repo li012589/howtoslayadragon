@@ -4,3 +4,4 @@
 2. emacs run as server mode
 3. linux presentation
 4. get i3bar transparent right
+5. xbox controler
