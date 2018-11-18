@@ -251,3 +251,18 @@ adobe-source-han-sans-cn-fonts
 
 ```
 
+#### 10. create swap file
+
+#### 11. map suspend and hibernation to hybrid-sleep
+
+```bash
+#/etc/systemd/sleep.conf
+[Sleep]
+# suspend=hybrid-sleep
+SuspendMode=suspend
+SuspendState=disk
+# hibernate=hybrid-sleep
+HibernateMode=suspend
+
+```
+
