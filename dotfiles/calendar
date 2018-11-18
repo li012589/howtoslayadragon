@@ -1,7 +1,0 @@
-#! /bin/bash
-
-# Left click
-if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
-   i3-msg exec gsimplecal &
-fi
-echo "`date +'%a %d %b'` <b>`date +'%T'`</b> "
