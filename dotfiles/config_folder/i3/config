@@ -122,11 +122,11 @@ set $ws8 ""
 set $ws9 ""
 set $ws10 ""
 
-bindsym $mod+k workspace prev_on_output
-bindsym $mod+l workspace next_on_output
+bindsym $mod+bracketleft workspace prev_on_output
+bindsym $mod+bracketright workspace next_on_output
 
-bindsym $mod+Shift+k workspace prev_on_output
-bindsym $mod+Shift+l workspace next_on_output
+bindsym $mod+Shift+bracketleft exec i3-msg move container to workspace prev_on_output && i3-msg workspace prev_on_output
+bindsym $mod+Shift+bracketright exec i3-msg move container to workspace next_on_output && i3-msg workspace next_on_output
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -141,16 +141,16 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 exec i3-msg move container to workspace $ws1 && i3-msg workspace $ws1
+bindsym $mod+Shift+2 exec i3-msg move container to workspace $ws2 && i3-msg workspace $ws2
+bindsym $mod+Shift+3 exec i3-msg move container to workspace $ws3 && i3-msg workspace $ws3
+bindsym $mod+Shift+4 exec i3-msg move container to workspace $ws4 && i3-msg workspace $ws4
+bindsym $mod+Shift+5 exec i3-msg move container to workspace $ws5 && i3-msg workspace $ws5
+bindsym $mod+Shift+6 exec i3-msg move container to workspace $ws6 && i3-msg workspace $ws6
+bindsym $mod+Shift+7 exec i3-msg move container to workspace $ws7 && i3-msg workspace $ws7
+bindsym $mod+Shift+8 exec i3-msg move container to workspace $ws8 && i3-msg workspace $ws8
+bindsym $mod+Shift+9 exec i3-msg move container to workspace $ws9 && i3-msg workspace $ws9
+bindsym $mod+Shift+0 exec i3-msg move container to workspace $ws10 && i3-msg workspace $ws10
 
 #custom key bind
 
