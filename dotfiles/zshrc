@@ -96,7 +96,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#alias emacs="emacsclient -c"
+alias Emacs="emacsclient -c"
+alias emacs="emacsclient -c -nw"
 DEFAULT_USER="lili"
 
 export PATH="/home/lili/anaconda3/bin:$PATH"

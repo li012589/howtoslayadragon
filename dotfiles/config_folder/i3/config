@@ -101,6 +101,14 @@ bindsym $mod+p focus parent
 bindsym $mod+Shift+p focus child
 
 # simulate hotkeys
+#bindsym --release $mod+v exec --no-startup-id xte "keydown Control_L" "key v" "keyup Control_L"
+
+#bindsym --release $mod+c exec --no-startup-id xte "keydown Control_L" "key c" "keyup Control_L"
+
+#bindsym --release $mod+f exec --no-startup-id xte "keydown Control_L" "key f" "keyup Control_L"
+
+#bindsym --release $mod+a exec --no-startup-id xte "keydown Control_L" "key a" "keyup Control_L"
+
 #bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
 #bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 #bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+x
@@ -236,6 +244,7 @@ exec --no-startup-id emacs --daemon
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master -q 5%+ && pkill -RTMIN+10 i3blocks # increase volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master -q 5%- && pkill -RTMIN+10 i3blocks # decrease volume
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle && pkill -RTMIN+10 i3blocks # mute volume
+bindsym $mod+e exec --no-startup-id emacsclient -c
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id enlighten +10% # increase brightness
