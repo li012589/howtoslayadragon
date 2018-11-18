@@ -1,0 +1,13 @@
+patch:
+  schema_list:
+    - schema: double_pinyin_flypy
+    - schema: luna_pinyin_simp
+  menu:
+    "page_size": 9
+
+key_binder/bindings:
+    # hotkey switch
+    - { when: always, accept: Shift+space, toggle: full_shape }
+    - { when: always, accept: Control+period, toggle: ascii_punct }
+    - { accept: comma, send: Page_Up, when: paging }
+    - { accept: period, send: Page_Down, when: has_menu }
