@@ -266,3 +266,4 @@ HibernateMode=suspend
 
 ```
 
+And use `xfce4-power-manager` to manager power options.
