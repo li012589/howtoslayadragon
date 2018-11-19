@@ -251,3 +251,19 @@ adobe-source-han-sans-cn-fonts
 
 ```
 
+#### 10. install swap file
+
+```bash
+fallocate -l 512M /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+```
+
+Finally, edit fstab to add an entry for the swap file:
+
+```bash
+/swapfile none swap defaults 0 0
+```
+
+[1]. https://wiki.archlinux.org/index.php/swap#Swap_file_creation
