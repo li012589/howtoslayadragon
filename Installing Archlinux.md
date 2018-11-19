@@ -267,3 +267,24 @@ Finally, edit fstab to add an entry for the swap file:
 ```
 
 [1]. https://wiki.archlinux.org/index.php/swap#Swap_file_creation
+
+#### 11. map suspend and hibernation to hybrid-sleep
+
+```bash
+#/etc/systemd/sleep.conf
+[Sleep]
+# suspend=hybrid-sleep
+SuspendMode=suspend
+SuspendState=disk
+# hibernate=hybrid-sleep
+HibernateMode=suspend
+
+```
+
+And use `xfce4-power-manager` to manager power options.
+
+
+
+#### tricks:
+
+1. use `xev` or `xev -event keyboard` to keep tack of input events(to lookup symbol for keyss)
