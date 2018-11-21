@@ -98,6 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias Emacs="emacsclient -c"
 alias emacs="emacsclient -c -nw"
+spell(){
+echo "$1"|aspell -a;
+}
 DEFAULT_USER="lili"
 
 export PATH="/home/lili/anaconda3/bin:$PATH"
