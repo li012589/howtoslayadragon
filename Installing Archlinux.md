@@ -288,3 +288,4 @@ And use `xfce4-power-manager` to manager power options.
 #### tricks:
 
 1. use `xev` or `xev -event keyboard` to keep tack of input events(to lookup symbol for keyss)
+2. share documents folder with windows, in terminal bind they using`mount --bind /PATH/TO/FOLDER /PATH/TO/FOLDER` or in `/etc/fstab` add `/PATH/TO/FOLDER    /PATH/TO/FOLDER    none    bind` and `sudo mount -a` , then check binding using `mount -l`.
