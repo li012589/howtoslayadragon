@@ -283,6 +283,28 @@ HibernateMode=suspend
 
 And use `xfce4-power-manager` to manager power options.
 
+#### 12. solve white noise due to power management issue
+
+change /etc/systemd/system/powertop.service to
+
+```bash
+[Unit]
+Description=PowerTOP auto tune
+
+[Service]
+Type=idle
+Environment="TERM=dumb"
+ExecStart=/usr/sbin/powertop --auto-tune
+ExecStartPost=/usr/bin/bash -c "echo '0' > /sys/module/snd_hda_intel/parameters/power_save"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+at file /etc/default/tlp
+
+change `BAY_POWEROFF_ON_BAT=1` to `BAY_POWEROFF_ON_BAT=0` 
+
 
 
 #### tricks:
