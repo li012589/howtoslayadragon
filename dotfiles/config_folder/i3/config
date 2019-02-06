@@ -244,7 +244,7 @@ bindsym $mode+tab workspace back_and_forth
 # auto start some applet
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-#exec --no-startup-id volumeicon
+exec --no-startup-id volumeicon
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id udiskie
 exec --no-startup-id ibus-daemon --xim
