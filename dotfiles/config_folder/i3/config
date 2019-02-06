@@ -255,7 +255,12 @@ exec --no-startup-id emacs --daemon
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master -q 5%+ && pkill -RTMIN+10 i3blocks # increase volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master -q 5%- && pkill -RTMIN+10 i3blocks # decrease volume
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle && pkill -RTMIN+10 i3blocks # mute volume
+
+# Start emacs client
 bindsym $mod+e exec --no-startup-id emacsclient -c
+
+# Start pavucontrol
+bindsym $mod+v exec --no-startup-id pavucontrol
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id enlighten +10% # increase brightness
